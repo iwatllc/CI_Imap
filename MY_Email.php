@@ -73,7 +73,7 @@ class MY_Email extends CI_Email {
     protected function _init_imap_stream() {
         $imap_stream = @imap_open($this->_full_imap_path(), $this->imap_user, $this->imap_pass);
         if(!$imap_stream) {
-            throw new ImapMailboxException('Connection error: ' . imap_last_error());
+            throw new Exception('Connection error: ' . imap_last_error());
         }
         return $imap_stream;
     }
